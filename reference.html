@@ -1,0 +1,1898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Function reference &mdash; Bottleneck 1.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bottleneck 1.2.1 documentation" href="index.html" />
+    <link rel="next" title="Release Notes" href="release.html" />
+    <link rel="prev" title="Bottleneck" href="intro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="release.html" title="Release Notes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Bottleneck"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bottleneck 1.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="function-reference">
+<h1>Function reference<a class="headerlink" href="#function-reference" title="Permalink to this headline">¶</a></h1>
+<p>Bottleneck provides the following functions:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>reduce</td>
+<td><a class="reference internal" href="#bottleneck.nansum" title="bottleneck.nansum"><code class="xref py py-meth docutils literal"><span class="pre">nansum</span></code></a>, <a class="reference internal" href="#bottleneck.nanmean" title="bottleneck.nanmean"><code class="xref py py-meth docutils literal"><span class="pre">nanmean</span></code></a>,
+<a class="reference internal" href="#bottleneck.nanstd" title="bottleneck.nanstd"><code class="xref py py-meth docutils literal"><span class="pre">nanstd</span></code></a>, <a class="reference internal" href="#bottleneck.nanvar" title="bottleneck.nanvar"><code class="xref py py-meth docutils literal"><span class="pre">nanvar</span></code></a>,
+<a class="reference internal" href="#bottleneck.nanmin" title="bottleneck.nanmin"><code class="xref py py-meth docutils literal"><span class="pre">nanmin</span></code></a>, <a class="reference internal" href="#bottleneck.nanmax" title="bottleneck.nanmax"><code class="xref py py-meth docutils literal"><span class="pre">nanmax</span></code></a>,
+<a class="reference internal" href="#bottleneck.median" title="bottleneck.median"><code class="xref py py-meth docutils literal"><span class="pre">median</span></code></a>, <a class="reference internal" href="#bottleneck.nanmedian" title="bottleneck.nanmedian"><code class="xref py py-meth docutils literal"><span class="pre">nanmedian</span></code></a>,
+<a class="reference internal" href="#bottleneck.ss" title="bottleneck.ss"><code class="xref py py-meth docutils literal"><span class="pre">ss</span></code></a>, <a class="reference internal" href="#bottleneck.nanargmin" title="bottleneck.nanargmin"><code class="xref py py-meth docutils literal"><span class="pre">nanargmin</span></code></a>,
+<a class="reference internal" href="#bottleneck.nanargmax" title="bottleneck.nanargmax"><code class="xref py py-meth docutils literal"><span class="pre">nanargmax</span></code></a>, <a class="reference internal" href="#bottleneck.anynan" title="bottleneck.anynan"><code class="xref py py-meth docutils literal"><span class="pre">anynan</span></code></a>,
+<a class="reference internal" href="#bottleneck.allnan" title="bottleneck.allnan"><code class="xref py py-meth docutils literal"><span class="pre">allnan</span></code></a></td>
+</tr>
+<tr class="row-even"><td>non-reduce</td>
+<td><a class="reference internal" href="#bottleneck.replace" title="bottleneck.replace"><code class="xref py py-meth docutils literal"><span class="pre">replace</span></code></a></td>
+</tr>
+<tr class="row-odd"><td>non-reduce with axis</td>
+<td><a class="reference internal" href="#bottleneck.rankdata" title="bottleneck.rankdata"><code class="xref py py-meth docutils literal"><span class="pre">rankdata</span></code></a>, <a class="reference internal" href="#bottleneck.nanrankdata" title="bottleneck.nanrankdata"><code class="xref py py-meth docutils literal"><span class="pre">nanrankdata</span></code></a>,
+<a class="reference internal" href="#bottleneck.partition" title="bottleneck.partition"><code class="xref py py-meth docutils literal"><span class="pre">partition</span></code></a>, <a class="reference internal" href="#bottleneck.argpartition" title="bottleneck.argpartition"><code class="xref py py-meth docutils literal"><span class="pre">argpartition</span></code></a>,
+<a class="reference internal" href="#bottleneck.push" title="bottleneck.push"><code class="xref py py-meth docutils literal"><span class="pre">push</span></code></a></td>
+</tr>
+<tr class="row-even"><td>moving window</td>
+<td><a class="reference internal" href="#bottleneck.move_sum" title="bottleneck.move_sum"><code class="xref py py-meth docutils literal"><span class="pre">move_sum</span></code></a>, <a class="reference internal" href="#bottleneck.move_mean" title="bottleneck.move_mean"><code class="xref py py-meth docutils literal"><span class="pre">move_mean</span></code></a>,
+<a class="reference internal" href="#bottleneck.move_std" title="bottleneck.move_std"><code class="xref py py-meth docutils literal"><span class="pre">move_std</span></code></a>, <a class="reference internal" href="#bottleneck.move_var" title="bottleneck.move_var"><code class="xref py py-meth docutils literal"><span class="pre">move_var</span></code></a>,
+<a class="reference internal" href="#bottleneck.move_min" title="bottleneck.move_min"><code class="xref py py-meth docutils literal"><span class="pre">move_min</span></code></a>, <a class="reference internal" href="#bottleneck.move_max" title="bottleneck.move_max"><code class="xref py py-meth docutils literal"><span class="pre">move_max</span></code></a>,
+<a class="reference internal" href="#bottleneck.move_argmin" title="bottleneck.move_argmin"><code class="xref py py-meth docutils literal"><span class="pre">move_argmin</span></code></a>, <a class="reference internal" href="#bottleneck.move_argmax" title="bottleneck.move_argmax"><code class="xref py py-meth docutils literal"><span class="pre">move_argmax</span></code></a>,
+<a class="reference internal" href="#bottleneck.move_median" title="bottleneck.move_median"><code class="xref py py-meth docutils literal"><span class="pre">move_median</span></code></a>, <a class="reference internal" href="#bottleneck.move_rank" title="bottleneck.move_rank"><code class="xref py py-meth docutils literal"><span class="pre">move_rank</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="reduce">
+<h2>Reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h2>
+<p>Functions the reduce the input array along the specified axis.</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nansum">
+<code class="descclassname">bottleneck.</code><code class="descname">nansum</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nansum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of array elements along given axis treating NaNs as zero.</p>
+<p>The data type (dtype) of the output is the same as the input. On 64-bit
+operating systems, 32-bit input is NOT upcast to 64-bit accumulator and
+return values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing numbers whose sum is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the sum is computed. The default (axis=None) is to
+compute the sum of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>No error is raised on overflow.</p>
+<p>If positive or negative infinity are present the result is positive or
+negative infinity. But if both positive and negative infinity are present,
+the result is Not A Number (NaN).</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 2.,  1.])</span>
+</pre></div>
+</div>
+<p>When positive infinity and negative infinity are present:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">-inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nansum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanmean">
+<code class="descclassname">bottleneck.</code><code class="descname">nanmean</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanmean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean of array elements along given axis ignoring NaNs.</p>
+<p><cite>float64</cite> intermediate and return values are used for integer inputs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing numbers whose mean is desired. If <cite>a</cite> is not an
+array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the means are computed. The default (axis=None) is to
+compute the mean of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is returned.
+<cite>float64</cite> intermediate and return values are used for integer inputs.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanmedian" title="bottleneck.nanmedian"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmedian</span></code></a></dt>
+<dd>Median along specified axis, ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>No error is raised on overflow. (The sum is computed and then the result
+is divided by the number of non-NaN elements.)</p>
+<p>If positive or negative infinity are present the result is positive or
+negative infinity. But if both positive and negative infinity are present,
+the result is Not A Number (NaN).</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 1.,  4.])</span>
+</pre></div>
+</div>
+<p>When positive infinity and negative infinity are present:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">-inf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">NINF</span><span class="p">])</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanstd">
+<code class="descclassname">bottleneck.</code><code class="descname">nanstd</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em>, <em>ddof=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanstd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation along the specified axis, ignoring NaNs.</p>
+<p><cite>float64</cite> intermediate and return values are used for integer inputs.</p>
+<p>Instead of a faster one-pass algorithm, a more stable two-pass algorithm
+is used.</p>
+<p>An example of a one-pass algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An example of a two-pass algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Note in the two-pass algorithm the mean must be found (first pass) before
+the squared deviation (second pass) can be found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the standard deviation is computed. The default
+(axis=None) is to compute the standard deviation of the flattened
+array.</p>
+</div></blockquote>
+<p><strong>ddof</strong> : int, optional</p>
+<blockquote>
+<div><p>Means Delta Degrees of Freedom. The divisor used in calculations
+is <code class="docutils literal"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code>, where <code class="docutils literal"><span class="pre">N</span></code> represents the number of non-NaN elements.
+By default <cite>ddof</cite> is zero.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is returned.
+<cite>float64</cite> intermediate and return values are used for integer inputs.
+If ddof is &gt;= the number of non-NaN elements in a slice or the slice
+contains only NaNs, then the result for that slice is NaN.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanvar" title="bottleneck.nanvar"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanvar</span></code></a></dt>
+<dd>Variance along specified axis ignoring NaNs</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>If positive or negative infinity are present the result is Not A Number
+(NaN).</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1.4142135623730951</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 0.,  0.])</span>
+</pre></div>
+</div>
+<p>When positive infinity or negative infinity are present NaN is returned:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanstd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanvar">
+<code class="descclassname">bottleneck.</code><code class="descname">nanvar</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em>, <em>ddof=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanvar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Variance along the specified axis, ignoring NaNs.</p>
+<p><cite>float64</cite> intermediate and return values are used for integer inputs.</p>
+<p>Instead of a faster one-pass algorithm, a more stable two-pass algorithm
+is used.</p>
+<p>An example of a one-pass algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>An example of a two-pass algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note in the two-pass algorithm the mean must be found (first pass) before
+the squared deviation (second pass) can be found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the variance is computed. The default (axis=None) is
+to compute the variance of the flattened array.</p>
+</div></blockquote>
+<p><strong>ddof</strong> : int, optional</p>
+<blockquote>
+<div><p>Means Delta Degrees of Freedom. The divisor used in calculations
+is <code class="docutils literal"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code>, where <code class="docutils literal"><span class="pre">N</span></code> represents the number of non_NaN elements.
+By default <cite>ddof</cite> is zero.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis
+removed. If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is
+returned. <cite>float64</cite> intermediate and return values are used for
+integer inputs. If ddof is &gt;= the number of non-NaN elements in a
+slice or the slice contains only NaNs, then the result for that slice
+is NaN.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanstd" title="bottleneck.nanstd"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanstd</span></code></a></dt>
+<dd>Standard deviation along specified axis ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>If positive or negative infinity are present the result is Not A Number
+(NaN).</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 0.,  0.])</span>
+</pre></div>
+</div>
+<p>When positive infinity or negative infinity are present NaN is returned:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanvar</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanmin">
+<code class="descclassname">bottleneck.</code><code class="descname">nanmin</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum values along specified axis, ignoring NaNs.</p>
+<p>When all-NaN slices are encountered, NaN is returned for that slice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the minimum is computed. The default (axis=None) is
+to compute the minimum of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is returned. The
+same dtype as <cite>a</cite> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanmax" title="bottleneck.nanmax"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmax</span></code></a></dt>
+<dd>Maximum along specified axis, ignoring NaNs.</dd>
+<dt><a class="reference internal" href="#bottleneck.nanargmin" title="bottleneck.nanargmin"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanargmin</span></code></a></dt>
+<dd>Indices of minimum values along axis, ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 1.,  4.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanmax">
+<code class="descclassname">bottleneck.</code><code class="descname">nanmax</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum values along specified axis, ignoring NaNs.</p>
+<p>When all-NaN slices are encountered, NaN is returned for that slice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the maximum is computed. The default (axis=None) is
+to compute the maximum of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, with the specified axis removed.
+If <cite>a</cite> is a 0-d array, or if axis is None, a scalar is returned. The
+same dtype as <cite>a</cite> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanmin" title="bottleneck.nanmin"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmin</span></code></a></dt>
+<dd>Minimum along specified axis, ignoring NaNs.</dd>
+<dt><a class="reference internal" href="#bottleneck.nanargmax" title="bottleneck.nanargmax"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanargmax</span></code></a></dt>
+<dd>Indices of maximum values along axis, ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmax</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 1.,  4.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.median">
+<code class="descclassname">bottleneck.</code><code class="descname">median</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.median" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median of array elements along given axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the median is computed. The default (axis=None) is to
+compute the median of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, except that the specified axis
+has been removed. If <cite>a</cite> is a 0d array, or if axis is None, a scalar
+is returned. <cite>float64</cite> return values are used for integer inputs. NaN
+is returned for a slice that contains one or more NaNs.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanmedian" title="bottleneck.nanmedian"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmedian</span></code></a></dt>
+<dd>Median along specified axis ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">    3.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">    array([ 6.5,  4.5,  2.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">    array([ 7.,  2.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanmedian">
+<code class="descclassname">bottleneck.</code><code class="descname">nanmedian</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanmedian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median of array elements along given axis ignoring NaNs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the median is computed. The default (axis=None) is to
+compute the median of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>, except that the specified axis
+has been removed. If <cite>a</cite> is a 0d array, or if axis is None, a scalar
+is returned. <cite>float64</cite> return values are used for integer inputs.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.median" title="bottleneck.median"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.median</span></code></a></dt>
+<dd>Median along specified axis.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([[ nan,   7.,   4.],</span>
+<span class="go">       [  3.,   2.,   1.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="go">&gt;&gt; bn.nanmedian(a, axis=0)</span>
+<span class="go">array([ 3. ,  4.5,  2.5])</span>
+<span class="go">&gt;&gt; bn.nanmedian(a, axis=1)</span>
+<span class="go">array([ 5.5,  2. ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.ss">
+<code class="descclassname">bottleneck.</code><code class="descname">ss</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.ss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the square of each element along the specified axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Array whose sum of squares is desired. If <cite>a</cite> is not an array, a
+conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the sum of squares is computed. The default
+(axis=None) is to sum the squares of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The sum of a**2 along the given axis.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">30.0</span>
+</pre></div>
+</div>
+<p>And calculating along an axis:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 30., 65.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanargmin">
+<code class="descclassname">bottleneck.</code><code class="descname">nanargmin</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanargmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indices of the minimum values along an axis, ignoring NaNs.</p>
+<p>For all-NaN slices <code class="docutils literal"><span class="pre">ValueError</span></code> is raised. Unlike NumPy, the results
+can be trusted if a slice contains only NaNs and Infs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which to operate. By default (axis=None) flattened input
+is used.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>index_array</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array of indices or a single index value.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanargmax" title="bottleneck.nanargmax"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanargmax</span></code></a></dt>
+<dd>Indices of the maximum values along an axis.</dd>
+<dt><a class="reference internal" href="#bottleneck.nanmin" title="bottleneck.nanmin"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmin</span></code></a></dt>
+<dd>Minimum values along specified axis, ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1, 0])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanargmax">
+<code class="descclassname">bottleneck.</code><code class="descname">nanargmax</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanargmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indices of the maximum values along an axis, ignoring NaNs.</p>
+<p>For all-NaN slices <code class="docutils literal"><span class="pre">ValueError</span></code> is raised. Unlike NumPy, the results
+can be trusted if a slice contains only NaNs and Infs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which to operate. By default (axis=None) flattened input
+is used.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>index_array</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array of indices or a single index value.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanargmin" title="bottleneck.nanargmin"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanargmin</span></code></a></dt>
+<dd>Indices of the minimum values along an axis.</dd>
+<dt><a class="reference internal" href="#bottleneck.nanmax" title="bottleneck.nanmax"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanmax</span></code></a></dt>
+<dd>Maximum values along specified axis, ignoring NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([1, 0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([1, 1])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.anynan">
+<code class="descclassname">bottleneck.</code><code class="descname">anynan</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.anynan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether any array element along a given axis is NaN.</p>
+<p>Returns the same output as np.isnan(a).any(axis)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which NaNs are searched. The default (<cite>axis</cite> = <code class="docutils literal"><span class="pre">None</span></code>)
+is to search for NaNs over a flattened input array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : bool or ndarray</p>
+<blockquote class="last">
+<div><p>A boolean or new <cite>ndarray</cite> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.allnan" title="bottleneck.allnan"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.allnan</span></code></a></dt>
+<dd>Test if all array elements along given axis are NaN</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">anynan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">anynan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">anynan</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">anynan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">anynan</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([False,  True], dtype=bool)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.allnan">
+<code class="descclassname">bottleneck.</code><code class="descname">allnan</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.allnan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether all array elements along a given axis are NaN.</p>
+<p>Returns the same output as np.isnan(a).all(axis)</p>
+<p>Note that allnan([]) is True to match np.isnan([]).all() and all([])</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which NaNs are searched. The default (<cite>axis</cite> = <code class="docutils literal"><span class="pre">None</span></code>)
+is to search for NaNs over a flattened input array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : bool or ndarray</p>
+<blockquote class="last">
+<div><p>A boolean or new <cite>ndarray</cite> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.anynan" title="bottleneck.anynan"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.anynan</span></code></a></dt>
+<dd>Test if any array element along given axis is NaN</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([False,  True], dtype=bool)</span>
+</pre></div>
+</div>
+<p>An empty array returns True:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">allnan</span><span class="p">([])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>which is similar to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">([])</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">([])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="non-reduce">
+<h2>Non-reduce<a class="headerlink" href="#non-reduce" title="Permalink to this headline">¶</a></h2>
+<p>Functions that do not reduce the input array and do not take <cite>axis</cite> as input.</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.replace">
+<code class="descclassname">bottleneck.</code><code class="descname">replace</code><span class="sig-paren">(</span><em>a</em>, <em>old</em>, <em>new</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace (inplace) given scalar values of an array with new values.</p>
+<p>The equivalent numpy function:</p>
+<blockquote>
+<div>a[a==old] = new</div></blockquote>
+<p>Or in the case where old=np.nan:</p>
+<blockquote>
+<div>a[np.isnan(old)] = new</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : numpy.ndarray</p>
+<blockquote>
+<div><p>The input array, which is also the output array since this functions
+works inplace.</p>
+</div></blockquote>
+<p><strong>old</strong> : scalar</p>
+<blockquote>
+<div><p>All elements in <cite>a</cite> with this value will be replaced by <cite>new</cite>.</p>
+</div></blockquote>
+<p><strong>new</strong> : scalar</p>
+<blockquote>
+<div><p>All elements in <cite>a</cite> with a value of <cite>old</cite> will be replaced by <cite>new</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Returns a view of the input array after performing the replacements,</strong> :</p>
+<p class="last"><strong>if any.</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Replace zero with 3 (note that the input array is modified):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1, 2, 3])</span>
+</pre></div>
+</div>
+<p>Replace np.nan with 0:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([ 1.,  2.,  0.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="non-reduce-with-axis">
+<h2>Non-reduce with axis<a class="headerlink" href="#non-reduce-with-axis" title="Permalink to this headline">¶</a></h2>
+<p>Functions that do not reduce the input array but operate along a specified
+axis.</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.rankdata">
+<code class="descclassname">bottleneck.</code><code class="descname">rankdata</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.rankdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ranks the data, dealing with ties appropriately.</p>
+<p>Equal values are assigned a rank that is the average of the ranks that
+would have been otherwise assigned to all of the values within that set.
+Ranks begin at 1, not 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the elements of the array are ranked. The default
+(axis=None) is to rank the elements of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>. The dtype is &#8216;float64&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.nanrankdata" title="bottleneck.nanrankdata"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.nanrankdata</span></code></a></dt>
+<dd>Ranks the data dealing with ties and NaNs.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">rankdata</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">array([ 1. ,  2.5,  2.5,  4. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">rankdata</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="go">array([ 1. ,  2.5,  2.5,  4. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">rankdata</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([[ 1.,  1.],</span>
+<span class="go">       [ 2.,  2.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">rankdata</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([[ 1.,  2.],</span>
+<span class="go">       [ 1.,  2.]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.nanrankdata">
+<code class="descclassname">bottleneck.</code><code class="descname">nanrankdata</code><span class="sig-paren">(</span><em>a</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.nanrankdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ranks the data, dealing with ties and NaNs appropriately.</p>
+<p>Equal values are assigned a rank that is the average of the ranks that
+would have been otherwise assigned to all of the values within that set.
+Ranks begin at 1, not 0.</p>
+<p>NaNs in the input array are returned as NaNs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the elements of the array are ranked. The default
+(axis=None) is to rank the elements of the flattened array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape as <cite>a</cite>. The dtype is &#8216;float64&#8217;.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.rankdata" title="bottleneck.rankdata"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.rankdata</span></code></a></dt>
+<dd>Ranks the data, dealing with ties and appropriately.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanrankdata</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">array([ nan,  1.5,  1.5,  3. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanrankdata</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="go">array([ nan,  1.5,  1.5,  3. ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanrankdata</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([[ nan,   1.],</span>
+<span class="go">       [  1.,   2.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">nanrankdata</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([[ nan,   1.],</span>
+<span class="go">       [  1.,   2.]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.partition">
+<code class="descclassname">bottleneck.</code><code class="descname">partition</code><span class="sig-paren">(</span><em>a</em>, <em>kth</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition array elements along given axis.</p>
+<p>A 1d array B is partitioned at array index <cite>kth</cite> if three conditions
+are met: (1) B[kth] is in its sorted position, (2) all elements to the
+left of <cite>kth</cite> are less than or equal to B[kth], and (3) all elements
+to the right of <cite>kth</cite> are greater than or equal to B[kth]. Note that
+the array elements in conditions (2) and (3) are in general unordered.</p>
+<p>Shuffling the input array may change the output. The only guarantee is
+given by the three conditions above.</p>
+<p>This functions is not protected against NaN. Therefore, you may get
+unexpected results if the input contains NaN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>kth</strong> : int</p>
+<blockquote>
+<div><p>The value of the element at index <cite>kth</cite> will be in its sorted
+position. Smaller (larger) or equal values will be to the left
+(right) of index <cite>kth</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the partition is performed. The default
+(axis=-1) is to partition along the last axis.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>A partitioned copy of the input array with the same shape and
+type of <cite>a</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.argpartition" title="bottleneck.argpartition"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.argpartition</span></code></a></dt>
+<dd>Indices that would partition an array</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Unexpected results may occur if the input array contains NaN.</p>
+<p class="rubric">Examples</p>
+<p>Create a numpy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Partition array so that the first 3 elements (indices 0, 1, 2) are the
+smallest 3 elements (note, as in this example, that the smallest 3
+elements may not be sorted):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([1, 0, 2, 4, 3])</span>
+</pre></div>
+</div>
+<p>Now Partition array so that the last 2 elements are the largest 2
+elements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">array([1, 0, 2, 3, 4])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.argpartition">
+<code class="descclassname">bottleneck.</code><code class="descname">argpartition</code><span class="sig-paren">(</span><em>a</em>, <em>kth</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.argpartition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return indices that would partition array along the given axis.</p>
+<p>A 1d array B is partitioned at array index <cite>kth</cite> if three conditions
+are met: (1) B[kth] is in its sorted position, (2) all elements to the
+left of <cite>kth</cite> are less than or equal to B[kth], and (3) all elements
+to the right of <cite>kth</cite> are greater than or equal to B[kth]. Note that
+the array elements in conditions (2) and (3) are in general unordered.</p>
+<p>Shuffling the input array may change the output. The only guarantee is
+given by the three conditions above.</p>
+<p>This functions is not protected against NaN. Therefore, you may get
+unexpected results if the input contains NaN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>kth</strong> : int</p>
+<blockquote>
+<div><p>The value of the element at index <cite>kth</cite> will be in its sorted
+position. Smaller (larger) or equal values will be to the left
+(right) of index <cite>kth</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>Axis along which the partition is performed. The default (axis=-1)
+is to partition along the last axis.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array the same shape as the input array containing the indices
+that partition <cite>a</cite>. The dtype of the indices is numpy.intp.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.partition" title="bottleneck.partition"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.partition</span></code></a></dt>
+<dd>Partition array elements along given axis.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Unexpected results may occur if the input array contains NaN.</p>
+<p class="rubric">Examples</p>
+<p>Create a numpy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Find the indices that partition the array so that the first 3
+elements are the smallest 3 elements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">index</span> <span class="o">=</span> <span class="n">bn</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">index</span>
+<span class="go">array([0, 1, 4, 3, 2])</span>
+</pre></div>
+</div>
+<p>Let&#8217;s use the indices to partition the array (note, as in this
+example, that the smallest 3 elements may not be in order):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="go">array([10, 0, 20, 40, 30])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.push">
+<code class="descclassname">bottleneck.</code><code class="descname">push</code><span class="sig-paren">(</span><em>a</em>, <em>n=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill missing values (NaNs) with most recent non-missing values.</p>
+<p>Filling proceeds along the specified axis from small index values to large
+index values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>n</strong> : {int, None}, optional</p>
+<blockquote>
+<div><p>How far to push values. If the most recent non-NaN array element is
+more than <cite>n</cite> index positions away, than a NaN is returned. The default
+(n = None) is to push the entire length of the slice. If <cite>n</cite> is an integer
+it must be nonnegative.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>Axis along which the elements of the array are pushed. The default
+(axis=-1) is to push along the last axis of the input array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>An array with the same shape and dtype as <cite>a</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#bottleneck.replace" title="bottleneck.replace"><code class="xref py py-obj docutils literal"><span class="pre">bottleneck.replace</span></code></a></dt>
+<dd>Replace specified value of an array with new value.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">    array([ 5.,  5.,  5.,  6.,  6.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">    array([  5.,   5.,  nan,   6.,   6.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">    array([ 5.,  5.,  5.,  6.,  6.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="moving-window-functions">
+<h2>Moving window functions<a class="headerlink" href="#moving-window-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions that operate along a (1d) moving window.</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_sum">
+<code class="descclassname">bottleneck.</code><code class="descname">move_sum</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window sum along the specified axis, optionally ignoring NaNs.</p>
+<p>This function cannot handle input arrays that contain Inf. When the
+window contains Inf, the output will correctly be Inf. However, when Inf
+moves out of the window, the remaining output values in the slice will
+incorrectly be NaN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving sum of the input array along the specified axis. The output
+has the same shape as the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   3.,   5.,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 1.,  3.,  5.,  3.,  5.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_mean">
+<code class="descclassname">bottleneck.</code><code class="descname">move_mean</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window mean along the specified axis, optionally ignoring NaNs.</p>
+<p>This function cannot handle input arrays that contain Inf. When the
+window contains Inf, the output will correctly be Inf. However, when Inf
+moves out of the window, the remaining output values in the slice will
+incorrectly be NaN.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving mean of the input array along the specified axis. The output
+has the same shape as the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,  1.5,  2.5,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 1. ,  1.5,  2.5,  3. ,  5. ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_std">
+<code class="descclassname">bottleneck.</code><code class="descname">move_std</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em>, <em>ddof=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window standard deviation along the specified axis, optionally
+ignoring NaNs.</p>
+<p>This function cannot handle input arrays that contain Inf. When Inf
+enters the moving window, the outout becomes NaN and will continue to
+be NaN for the remainer of the slice.</p>
+<p>Unlike bn.nanstd, which uses a two-pass algorithm, move_nanstd uses a
+one-pass algorithm called Welford&#8217;s method. The algorithm is slow but
+numerically stable for cases where the mean is large compared to the
+standard deviation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+<p><strong>ddof</strong> : int, optional</p>
+<blockquote>
+<div><p>Means Delta Degrees of Freedom. The divisor used in calculations
+is <code class="docutils literal"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code>, where <code class="docutils literal"><span class="pre">N</span></code> represents the number of elements.
+By default <cite>ddof</cite> is zero.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving standard deviation of the input array along the specified
+axis. The output has the same shape as the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,  0.5,  0.5,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 0. ,  0.5,  0.5,  0. ,  0. ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_var">
+<code class="descclassname">bottleneck.</code><code class="descname">move_var</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em>, <em>ddof=0</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window variance along the specified axis, optionally ignoring NaNs.</p>
+<p>This function cannot handle input arrays that contain Inf. When Inf
+enters the moving window, the outout becomes NaN and will continue to
+be NaN for the remainer of the slice.</p>
+<p>Unlike bn.nanvar, which uses a two-pass algorithm, move_nanvar uses a
+one-pass algorithm called Welford&#8217;s method. The algorithm is slow but
+numerically stable for cases where the mean is large compared to the
+standard deviation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+<p><strong>ddof</strong> : int, optional</p>
+<blockquote>
+<div><p>Means Delta Degrees of Freedom. The divisor used in calculations
+is <code class="docutils literal"><span class="pre">N</span> <span class="pre">-</span> <span class="pre">ddof</span></code>, where <code class="docutils literal"><span class="pre">N</span></code> represents the number of elements.
+By default <cite>ddof</cite> is zero.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving variance of the input array along the specified axis. The
+output has the same shape as the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_var</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,  0.25,  0.25,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_var</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 0. ,  0.25,  0.25,  0. ,  0. ])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_min">
+<code class="descclassname">bottleneck.</code><code class="descname">move_min</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window minimum along the specified axis, optionally ignoring NaNs.</p>
+<p>float64 output is returned for all input data types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving minimum of the input array along the specified axis. The
+output has the same shape as the input. The dtype of the output is
+always float64.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   1.,   2.,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 1.,  1.,  2.,  3.,  5.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_max">
+<code class="descclassname">bottleneck.</code><code class="descname">move_max</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window maximum along the specified axis, optionally ignoring NaNs.</p>
+<p>float64 output is returned for all input data types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving maximum of the input array along the specified axis. The
+output has the same shape as the input. The dtype of the output is
+always float64.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   2.,   3.,  nan,  nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 1.,  2.,  3.,  3.,  5.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_argmin">
+<code class="descclassname">bottleneck.</code><code class="descname">move_argmin</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_argmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window index of minimum along the specified axis, optionally
+ignoring NaNs.</p>
+<p>Index 0 is at the rightmost edge of the window. For example, if the array
+is monotonically decreasing (increasing) along the specified axis then
+the output array will contain zeros (window-1).</p>
+<p>If there is a tie in input values within a window, then the rightmost
+index is returned.</p>
+<p>float64 output is returned for all input data types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving index of minimum values of the input array along the
+specified axis. The output has the same shape as the input. The dtype
+of the output is always float64.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   1.,   1.,   1.,   1.])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   0.,   0.,   0.,   0.])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">array([ nan,  nan,   2.,   0.,   1.,   2.,   1.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_argmax">
+<code class="descclassname">bottleneck.</code><code class="descname">move_argmax</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_argmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window index of maximum along the specified axis, optionally
+ignoring NaNs.</p>
+<p>Index 0 is at the rightmost edge of the window. For example, if the array
+is monotonically increasing (decreasing) along the specified axis then
+the output array will contain zeros (window-1).</p>
+<p>If there is a tie in input values within a window, then the rightmost
+index is returned.</p>
+<p>float64 output is returned for all input data types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving index of maximum values of the input array along the
+specified axis. The output has the same shape as the input. The dtype
+of the output is always float64.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   0.,   0.,   0.,   0.])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,   1.,   1.,   1.,   1.])</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_argmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">array([ nan,  nan,   0.,   1.,   0.,   1.,   2.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_median">
+<code class="descclassname">bottleneck.</code><code class="descname">move_median</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_median" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window median along the specified axis, optionally ignoring NaNs.</p>
+<p>float64 output is returned for all input data types.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving median of the input array along the specified axis. The
+output has the same shape as the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([ nan,  1.5,  2.5,  3.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_median</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 1. ,  1.5,  2.5,  3.5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="bottleneck.move_rank">
+<code class="descclassname">bottleneck.</code><code class="descname">move_rank</code><span class="sig-paren">(</span><em>a</em>, <em>window</em>, <em>min_count=None</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bottleneck.move_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moving window ranking along the specified axis, optionally ignoring NaNs.</p>
+<p>The output is normalized to be between -1 and 1. For example, with a
+window width of 3 (and with no ties), the possible output values are
+-1, 0, 1.</p>
+<p>Ties are broken by averaging the rankings. See the examples below.</p>
+<p>The runtime depends almost linearly on <cite>window</cite>. The more NaNs there are
+in the input array, the shorter the runtime.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : ndarray</p>
+<blockquote>
+<div><p>Input array. If <cite>a</cite> is not an array, a conversion is attempted.</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>The number of elements in the moving window.</p>
+</div></blockquote>
+<p><strong>min_count: {int, None}, optional</strong> :</p>
+<blockquote>
+<div><p>If the number of non-NaN values in a window is less than <cite>min_count</cite>,
+then a value of NaN is assigned to the window. By default <cite>min_count</cite>
+is None, which is equivalent to setting <cite>min_count</cite> equal to <cite>window</cite>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis over which the window is moved. By default the last axis
+(axis=-1) is used. An axis of None is not allowed.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>The moving ranking along the specified axis. The output has the same
+shape as the input. For integer input arrays, the dtype of the output
+is float64.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>With window=3 and no ties, there are 3 possible output values, i.e.
+[-1., 0., 1.]:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_rank</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">    array([ nan,  nan,   1.,   1.,   0.,  -1.,  -1.,   0.,  -1.])</span>
+</pre></div>
+</div>
+<p>Ties are broken by averaging the rankings of the tied elements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_rank</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">    array([ nan,  nan,  1. ,  0.5,  0. ,  1. ])</span>
+</pre></div>
+</div>
+<p>In an increasing sequence, the moving window ranking is always equal to 1:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bn</span><span class="o">.</span><span class="n">move_rank</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">    array([ nan,   1.,   1.,   1.,   1.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Function reference</a><ul>
+<li><a class="reference internal" href="#reduce">Reduce</a></li>
+<li><a class="reference internal" href="#non-reduce">Non-reduce</a></li>
+<li><a class="reference internal" href="#non-reduce-with-axis">Non-reduce with axis</a></li>
+<li><a class="reference internal" href="#moving-window-functions">Moving window functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Bottleneck</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="release.html"
+                        title="next chapter">Release Notes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="release.html" title="Release Notes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Bottleneck"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bottleneck 1.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010-2017 Keith Goodman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

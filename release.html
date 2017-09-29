@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Release Notes &mdash; Bottleneck 1.2.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Bottleneck 1.2.1 documentation" href="index.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Function reference" href="reference.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="license.html" title="License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="reference.html" title="Function reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bottleneck 1.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-notes">
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<p>These are the major changes made in each release. For details of the changes
+see the commit log at <a class="reference external" href="http://github.com/kwgoodman/bottleneck">http://github.com/kwgoodman/bottleneck</a></p>
+<div class="section" id="bottleneck-1-2-1">
+<h2>Bottleneck 1.2.1<a class="headerlink" href="#bottleneck-1-2-1" title="Permalink to this headline">¶</a></h2>
+<p><em>Release date: 2017-05-15</em></p>
+<p>This release adds support for NumPy&#8217;s relaxed strides checking and
+fixes a few bugs.</p>
+<p><strong>Bug Fixes</strong></p>
+<ul class="simple">
+<li>#156 Installing bottleneck when two versions of NumPy are present</li>
+<li>#157 Compiling on Ubuntu 14.04 inside a Windows 7 WMware</li>
+<li>#159 Occasional segmentation fault in nanargmin, nanargmax, median,
+and nanmedian when all of the following conditions are met:
+axis is None, input array is 2d or greater, and input array is not C
+contiguous.</li>
+<li>#163 Reducing np.array([2**31], dtype=np.int64) overflows on Windows</li>
+</ul>
+</div>
+<div class="section" id="older-versions">
+<h2>Older versions<a class="headerlink" href="#older-versions" title="Permalink to this headline">¶</a></h2>
+<p>Release notes from past releases.</p>
+<div class="section" id="bottleneck-1-2-0">
+<h3>Bottleneck 1.2.0<a class="headerlink" href="#bottleneck-1-2-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2016-10-20</em></p>
+<p>This release is a complete rewrite of Bottleneck.</p>
+<p><strong>Port to C</strong></p>
+<ul class="simple">
+<li>Bottleneck is now written in C</li>
+<li>Cython is no longer a dependency</li>
+<li>Source tarball size reduced by 80%</li>
+<li>Build time reduced by 66%</li>
+<li>Install size reduced by 45%</li>
+</ul>
+<p><strong>Redesign</strong></p>
+<ul class="simple">
+<li>Besides porting to C, much of bottleneck has been redesigned to be
+simpler and faster. For example, bottleneck now uses its own N-dimensional
+array iterators, reducing function call overhead.</li>
+</ul>
+<p><strong>New features</strong></p>
+<ul class="simple">
+<li>The new function bench_detailed runs a detailed performance benchmark on
+a single bottleneck function.</li>
+<li>Bottleneck can be installed on systems that do not yet have NumPy
+installed. Previously that only worked on some systems.</li>
+</ul>
+<p><strong>Beware</strong></p>
+<ul class="simple">
+<li>Functions partsort and argpartsort have been renamed to partition and
+argpartition to match NumPy. Additionally the meaning of the input
+arguments have changed: bn.partsort(a, n) is now equivalent to
+bn.partition(a, kth=n-1). Similarly for bn.argpartition.</li>
+<li>The keyword for array input has been changed from <cite>arr</cite> to <cite>a</cite> in all
+functions. It now matches NumPy.</li>
+</ul>
+<p><strong>Thanks</strong></p>
+<ul class="simple">
+<li>Moritz E. Beber: continuous integration with AppVeyor</li>
+<li>Christoph Gohlke: Windows compatibility</li>
+<li>Jennifer Olsen: comments and suggestions</li>
+<li>A special thanks to the Cython developers. The quickest way to appreciate
+their work is to remove Cython from your project. It is not easy.</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-1-1-0">
+<h3>Bottleneck 1.1.0<a class="headerlink" href="#bottleneck-1-1-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2016-06-22</em></p>
+<p>This release makes Bottleneck more robust, releases GIL, adds new functions.</p>
+<p><strong>More Robust</strong></p>
+<ul class="simple">
+<li>move_median can now handle NaNs and <cite>min_count</cite> parameter</li>
+<li>move_std is slower but numerically more stable</li>
+<li>Bottleneck no longer crashes on byte-swapped input arrays</li>
+</ul>
+<p><strong>Faster</strong></p>
+<ul class="simple">
+<li>All Bottleneck functions release the GIL</li>
+<li>median is faster if the input array contains NaN</li>
+<li>move_median is faster for input arrays that contain lots of NaNs</li>
+<li>No speed penalty for median, nanmedian, nanargmin, nanargmax for Fortran
+ordered input arrays when axis is None</li>
+<li>Function call overhead cut in half for reduction along all axes (axis=None)
+if the input array satisfies at least one of the following properties: 1d,
+C contiguous, F contiguous</li>
+<li>Reduction along all axes (axis=None) is more than twice as fast for long,
+narrow input arrays such as a (1000000, 2) C contiguous array and a
+(2, 1000000) F contiguous array</li>
+</ul>
+<p><strong>New Functions</strong></p>
+<ul class="simple">
+<li>move_var</li>
+<li>move_argmin</li>
+<li>move_argmax</li>
+<li>move_rank</li>
+<li>push</li>
+</ul>
+<p><strong>Beware</strong></p>
+<ul class="simple">
+<li>median now returns NaN for a slice that contains one or more NaNs</li>
+<li>Instead of using the distutils default, the &#8216;-O2&#8217; C compiler flag is forced</li>
+<li>move_std output changed when mean is large compared to standard deviation</li>
+<li>Fixed: Non-accelerated moving window functions used min_count incorrectly</li>
+<li>move_median is a bit slower for float input arrays that do not contain NaN</li>
+</ul>
+<p><strong>Thanks</strong></p>
+<p>Alphabeticaly by last name</p>
+<ul class="simple">
+<li>Alessandro Amici worked on setup.py</li>
+<li>Pietro Battiston modernized bottleneck installation</li>
+<li>Moritz E. Beber set up continuous integration with Travis CI</li>
+<li>Jaime Frio improved the numerical stability of move_std</li>
+<li>Christoph Gohlke revived Windows compatibility</li>
+<li>Jennifer Olsen added NaN support to move_median</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-1-0-0">
+<h3>Bottleneck 1.0.0<a class="headerlink" href="#bottleneck-1-0-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2015-02-06</em></p>
+<p>This release is a complete rewrite of Bottleneck.</p>
+<p><strong>Faster</strong></p>
+<ul class="simple">
+<li>&#8220;python setup.py build&#8221; is 18.7 times faster</li>
+<li>Function-call overhead cut in half&#8212;a big speed up for small input arrays</li>
+<li>Arbitrary ndim input arrays accelerated; previously only 1d, 2d, and 3d</li>
+<li>bn.nanrankdata is twice as fast for float input arrays</li>
+<li>bn.move_max, bn.move_min are faster for int input arrays</li>
+<li>No speed penalty for reducing along all axes when input is Fortran ordered</li>
+</ul>
+<p><strong>Smaller</strong></p>
+<ul class="simple">
+<li>Compiled binaries 14.1 times smaller</li>
+<li>Source tarball 4.7 times smaller</li>
+<li>9.8 times less C code</li>
+<li>4.3 times less Cython code</li>
+<li>3.7 times less Python code</li>
+</ul>
+<p><strong>Beware</strong></p>
+<ul class="simple">
+<li>Requires numpy 1.9.1</li>
+<li>Single API, e.g.: bn.nansum instead of bn.nansum and nansum_2d_float64_axis0</li>
+<li>On 64-bit systems bn.nansum(int32) returns int32 instead of int64</li>
+<li>bn.nansum now returns 0 for all NaN slices (as does numpy 1.9.1)</li>
+<li>Reducing over all axes returns, e.g., 6.0; previously np.float64(6.0)</li>
+<li>bn.ss() now has default axis=None instead of axis=0</li>
+<li>bn.nn() is no longer in bottleneck</li>
+</ul>
+<p><strong>min_count</strong></p>
+<ul class="simple">
+<li>Previous releases had moving window function pairs: move_sum, move_nansum</li>
+<li>This release only has half of the pairs: move_sum</li>
+<li>Instead a new input parameter, min_count, has been added</li>
+<li>min_count=None same as old move_sum; min_count=1 same as old move_nansum</li>
+<li>If # non-NaN values in window &lt; min_count, then NaN assigned to the window</li>
+<li>Exception: move_median does not take min_count as input</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul class="simple">
+<li>Can now install bottleneck with pip even if numpy is not already installed</li>
+<li>bn.move_max, bn.move_min now return float32 for float32 input</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-8-0">
+<h3>Bottleneck 0.8.0<a class="headerlink" href="#bottleneck-0-8-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2014-01-21</em></p>
+<p>This version of Bottleneck requires NumPy 1.8.</p>
+<p><strong>Breaks from 0.7.0</strong></p>
+<ul class="simple">
+<li>This version of Bottleneck requires NumPy 1.8</li>
+<li>nanargmin and nanargmax behave like the corresponding functions in NumPy 1.8</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>nanargmax/nanargmin wrong for redundant max/min values in 1d int arrays</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-7-0">
+<h3>Bottleneck 0.7.0<a class="headerlink" href="#bottleneck-0-7-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2013-09-10</em></p>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li>bn.rankdata() is twice as fast (with input a = np.random.rand(1000000))</li>
+<li>C files now included in github repo; cython not needed to try latest</li>
+<li>C files are now generated with Cython 0.19.1 instead of 0.16</li>
+<li>Test bottleneck across multiple python/numpy versions using tox</li>
+<li>Source tarball size cut in half</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>#50 move_std, move_nanstd return inappropriate NaNs (sqrt of negative #)</li>
+<li>#52 <cite>make test</cite> fails on some computers</li>
+<li>#57 scipy optional yet some unit tests depend on scipy</li>
+<li>#49, #55 now works on Mac OS X 10.8 using clang compiler</li>
+<li>#60 nanstd([1.0], ddof=1) and nanvar([1.0], ddof=1) crash</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-6-0">
+<h3>Bottleneck 0.6.0<a class="headerlink" href="#bottleneck-0-6-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2012-06-04</em></p>
+<p>Thanks to Dougal Sutherland, Bottleneck now runs on Python 3.2.</p>
+<p><strong>New functions</strong></p>
+<ul class="simple">
+<li>replace(arr, old, new), e.g, replace(arr, np.nan, 0)</li>
+<li>nn(arr, arr0, axis) nearest neighbor and its index of 1d arr0 in 2d arr</li>
+<li>anynan(arr, axis) faster alternative to np.isnan(arr).any(axis)</li>
+<li>allnan(arr, axis) faster alternative to np.isnan(arr).all(axis)</li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li>Python 3.2 support (may work on earlier versions of Python 3)</li>
+<li>C files are now generated with Cython 0.16 instead of 0.14.1</li>
+<li>Upgrade numpydoc from 0.3.1 to 0.4 to support Sphinx 1.0.1</li>
+</ul>
+<p><strong>Breaks from 0.5.0</strong></p>
+<ul class="simple">
+<li>Support for Python 2.5 dropped</li>
+<li>Default axis for benchmark suite is now axis=1 (was 0)</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>#31 Confusing error message in partsort and argpartsort</li>
+<li>#32 Update path in MANIFEST.in</li>
+<li>#35 Wrong output for very large (2**31) input arrays</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-5-0">
+<h3>Bottleneck 0.5.0<a class="headerlink" href="#bottleneck-0-5-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2011-06-13</em></p>
+<p>The fifth release of bottleneck adds four new functions, comes in a single
+source distribution instead of separate 32 and 64 bit versions, and contains
+bug fixes.</p>
+<p>J. David Lee wrote the C-code implementation of the double heap moving
+window median.</p>
+<p><strong>New functions</strong></p>
+<ul class="simple">
+<li>move_median(), moving window median</li>
+<li>partsort(), partial sort</li>
+<li>argpartsort()</li>
+<li>ss(), sum of squares, faster version of scipy.stats.ss</li>
+</ul>
+<p><strong>Changes</strong></p>
+<ul class="simple">
+<li>Single source distribution instead of separate 32 and 64 bit versions</li>
+<li>nanmax and nanmin now follow Numpy 1.6 (not 1.5.1) when input is all NaN</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>#14 Support python 2.5 by importing <cite>with</cite> statement</li>
+<li>#22 nanmedian wrong for particular ordering of NaN and non-NaN elements</li>
+<li>#26 argpartsort, nanargmin, nanargmax returned wrong dtype on 64-bit Windows</li>
+<li>#29 rankdata and nanrankdata crashed on 64-bit Windows</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-4-3">
+<h3>Bottleneck 0.4.3<a class="headerlink" href="#bottleneck-0-4-3" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2011-03-17</em></p>
+<p>This is a bug fix release.</p>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>#11 median and nanmedian modified (partial sort) input array</li>
+<li>#12 nanmedian wrong when odd number of elements with all but last a NaN</li>
+</ul>
+<p><strong>Enhancement</strong></p>
+<ul class="simple">
+<li>Lazy import of SciPy (rarely used) speeds Bottleneck import 3x</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-4-2">
+<h3>Bottleneck 0.4.2<a class="headerlink" href="#bottleneck-0-4-2" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2011-03-08</em></p>
+<p>This is a bug fix release.</p>
+<p>Same bug fixed in Bottleneck 0.4.1 for nanstd() was fixed for nanvar() in
+this release. Thanks again to Christoph Gohlke for finding the bug.</p>
+</div>
+<div class="section" id="bottleneck-0-4-1">
+<h3>Bottleneck 0.4.1<a class="headerlink" href="#bottleneck-0-4-1" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2011-03-08</em></p>
+<p>This is a bug fix release.</p>
+<p>The low-level functions nanstd_3d_int32_axis1 and nanstd_3d_int64_axis1,
+called by bottleneck.nanstd(), wrote beyond the memory owned by the output
+array if arr.shape[1] == 0 and arr.shape[0] &gt; arr.shape[2], where arr is
+the input array.</p>
+<p>Thanks to Christoph Gohlke for finding an example to demonstrate the bug.</p>
+</div>
+<div class="section" id="bottleneck-0-4-0">
+<h3>Bottleneck 0.4.0<a class="headerlink" href="#bottleneck-0-4-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2011-03-08</em></p>
+<p>The fourth release of Bottleneck contains new functions and bug fixes.
+Separate source code distributions are now made for 32 bit and 64 bit
+operating systems.</p>
+<p><strong>New functions</strong></p>
+<ul class="simple">
+<li>rankdata()</li>
+<li>nanrankdata()</li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li>Optionally specify the shapes of the arrays used in benchmark</li>
+<li>Can specify which input arrays to fill with one-third NaNs in benchmark</li>
+</ul>
+<p><strong>Breaks from 0.3.0</strong></p>
+<ul class="simple">
+<li>Removed group_nanmean() function</li>
+<li>Bump dependency from NumPy 1.4.1 to NumPy 1.5.1</li>
+<li>C files are now generated with Cython 0.14.1 instead of 0.13</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul class="simple">
+<li>#6 Some functions gave wrong output dtype for some input dtypes on 32 bit OS</li>
+<li>#7 Some functions choked on size zero input arrays</li>
+<li>#8 Segmentation fault with Cython 0.14.1 (but not 0.13)</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-3-0">
+<h3>Bottleneck 0.3.0<a class="headerlink" href="#bottleneck-0-3-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2010-01-19</em></p>
+<p>The third release of Bottleneck is twice as fast for small input arrays and
+contains 10 new functions.</p>
+<p><strong>Faster</strong></p>
+<ul class="simple">
+<li>All functions are faster (less overhead in selector functions)</li>
+</ul>
+<p><strong>New functions</strong></p>
+<ul class="simple">
+<li>nansum()</li>
+<li>move_sum()</li>
+<li>move_nansum()</li>
+<li>move_mean()</li>
+<li>move_std()</li>
+<li>move_nanstd()</li>
+<li>move_min()</li>
+<li>move_nanmin()</li>
+<li>move_max()</li>
+<li>move_nanmax()</li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li>You can now specify the dtype and axis to use in the benchmark timings</li>
+<li>Improved documentation and more unit tests</li>
+</ul>
+<p><strong>Breaks from 0.2.0</strong></p>
+<ul class="simple">
+<li>Moving window functions now default to axis=-1 instead of axis=0</li>
+<li>Low-level moving window selector functions no longer take window as input</li>
+</ul>
+<p><strong>Bug fix</strong></p>
+<ul class="simple">
+<li>int input array resulted in call to slow, non-cython version of move_nanmean</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-2-0">
+<h3>Bottleneck 0.2.0<a class="headerlink" href="#bottleneck-0-2-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2010-12-27</em></p>
+<p>The second release of Bottleneck is faster, contains more functions, and
+supports more dtypes.</p>
+<p><strong>Faster</strong></p>
+<ul class="simple">
+<li>All functions faster (less overhead) when output is not a scalar</li>
+<li>Faster nanmean() for 2d, 3d arrays containing NaNs when axis is not None</li>
+</ul>
+<p><strong>New functions</strong></p>
+<ul class="simple">
+<li>nanargmin()</li>
+<li>nanargmax()</li>
+<li>nanmedian()</li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li>Added support for float32</li>
+<li>Fallback to slower, non-Cython functions for unaccelerated ndim/dtype</li>
+<li>Scipy is no longer a dependency</li>
+<li>Added support for older versions of NumPy (1.4.1)</li>
+<li>All functions are now templated for dtype and axis</li>
+<li>Added a sandbox for prototyping of new Bottleneck functions</li>
+<li>Rewrote benchmarking code</li>
+</ul>
+</div>
+<div class="section" id="bottleneck-0-1-0">
+<h3>Bottleneck 0.1.0<a class="headerlink" href="#bottleneck-0-1-0" title="Permalink to this headline">¶</a></h3>
+<p><em>Release date: 2010-12-10</em></p>
+<p>Initial release. The three categories of Bottleneck functions:</p>
+<ul class="simple">
+<li>Faster replacement for NumPy and SciPy functions</li>
+<li>Moving window functions</li>
+<li>Group functions that bin calculations by like-labeled elements</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/icon.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release Notes</a><ul>
+<li><a class="reference internal" href="#bottleneck-1-2-1">Bottleneck 1.2.1</a></li>
+<li><a class="reference internal" href="#older-versions">Older versions</a><ul>
+<li><a class="reference internal" href="#bottleneck-1-2-0">Bottleneck 1.2.0</a></li>
+<li><a class="reference internal" href="#bottleneck-1-1-0">Bottleneck 1.1.0</a></li>
+<li><a class="reference internal" href="#bottleneck-1-0-0">Bottleneck 1.0.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-8-0">Bottleneck 0.8.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-7-0">Bottleneck 0.7.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-6-0">Bottleneck 0.6.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-5-0">Bottleneck 0.5.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-4-3">Bottleneck 0.4.3</a></li>
+<li><a class="reference internal" href="#bottleneck-0-4-2">Bottleneck 0.4.2</a></li>
+<li><a class="reference internal" href="#bottleneck-0-4-1">Bottleneck 0.4.1</a></li>
+<li><a class="reference internal" href="#bottleneck-0-4-0">Bottleneck 0.4.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-3-0">Bottleneck 0.3.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-2-0">Bottleneck 0.2.0</a></li>
+<li><a class="reference internal" href="#bottleneck-0-1-0">Bottleneck 0.1.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="previous chapter">Function reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/release.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="license.html" title="License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="reference.html" title="Function reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Bottleneck 1.2.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010-2017 Keith Goodman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
